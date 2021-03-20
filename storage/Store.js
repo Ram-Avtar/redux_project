@@ -12,10 +12,7 @@ console.log("store state ", store.getState())
 
 store.subscribe(() => console.log("sub   ", store.getState()))
 
-// store.dispatch({ type: INCREMENT });
-// store.dispatch({
-//     type: DECREMENT
-// });
+
 
 console.log("store state ", store.getState())
 
