@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, createStore, compose } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { DECREMENT, INCREMENT } from "./action/Action";
 import logger from "./middleware/logger";

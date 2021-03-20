@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
-import { ADD_COUNTER, DECREMENT, DELETE_RESULT, INCREMENT, STORING_RESULT } from './storage/action/Action';
+import { addCounter, decrement, deletResult, increment, storeResult } from './storage/action/Action';
 
 const Calculation = (props) => {
     return (
@@ -18,7 +18,10 @@ const Calculation = (props) => {
             <ul>
 
                 {props.res.map((stResult) => (
-                    <li style={{ color: 'white' }} key={stResult.id} onClick={() => props.deletResult(stResult.id)}>
+                    <li
+                        style={{ color: 'white' }}
+                        key={stResult.id}
+                        onClick={() => props.deletResult(stResult.id)}>
                         {stResult.value}
                     </li>
                 ))}
@@ -52,11 +55,11 @@ const mapPropsToState = (state) => {
 const mapDispatchToProps = (dispatch) => {
 
     return {
-        incre: () => dispatch({ type: INCREMENT }),
-        decre: () => dispatch({ type: DECREMENT }),
-        add: () => dispatch({ type: ADD_COUNTER, value: 10 }),
-        storingResult: () => dispatch({ type: STORING_RESULT }),
-        deletResult: (id) => dispatch({ type: DELETE_RESULT, resultElementId: id })
+        incre: () => dispatch(increment()),
+        decre: () => dispatch(decrement()),
+        add: () => dispatch(addCounter(10)),
+        storingResult: () => dispatch(storeResult()),
+        deletResult: (id) => dispatch(deletResult(id))
 
     }
 
