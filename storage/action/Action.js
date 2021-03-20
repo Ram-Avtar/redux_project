@@ -23,9 +23,16 @@ export const addCounter = (value) => {
         value
     }
 }
-export const storeResult = () => {
+export const saveResult = () => {
     return {
         type: STORING_RESULT,
+    }
+}
+export const storeResult = () => {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch(saveResult());
+        }, 3000)
     }
 }
 
