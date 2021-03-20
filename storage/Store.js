@@ -1,11 +1,18 @@
 import { applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { DECREMENT, INCREMENT } from "./action/Action";
+import logger from "./middleware/logger";
 import rootReducer from "./reducer/Reducer";
 
 
-const store = createStore(rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+
+const store = createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(logger))
+
 );
 
 console.log("store state ", store.getState())
