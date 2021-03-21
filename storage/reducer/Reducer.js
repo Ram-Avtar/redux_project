@@ -7,6 +7,7 @@ const initialState = {
     result: []
 }
 
+
 export const calculationReducer = (state = initialState, action) => {
     switch (action.type) {
         case INCREMENT: {
